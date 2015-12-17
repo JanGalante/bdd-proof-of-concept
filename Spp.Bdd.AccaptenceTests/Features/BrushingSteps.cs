@@ -1,10 +1,11 @@
 ﻿using System;
+using SpecResults;
 using TechTalk.SpecFlow;
 
 namespace Spp.Bdd.AccaptenceTests.Features
 {
     [Binding]
-    public class BrushingSteps
+    public class BrushingSteps : ReportingStepDefinitions
     {
         [Given]
         public void Given_there_is_GRAMS_grams_of_BRAND_toothpaste_on_the_brush(int grams, string brand)

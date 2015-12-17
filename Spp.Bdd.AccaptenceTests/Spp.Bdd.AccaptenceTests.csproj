@@ -45,11 +45,13 @@
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.2.6.0.12054\lib\nunit.framework.dll</HintPath>
     </Reference>
-    <Reference Include="SpecResults">
-      <HintPath>..\packages\SpecResults.0.1.0.6\lib\net40\SpecResults.dll</HintPath>
+    <Reference Include="SpecResults, Version=0.1.0.7, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SpecResults.0.1.0.7\lib\net40\SpecResults.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="SpecResults.Json">
-      <HintPath>..\packages\SpecResults.Json.0.1.0.6\lib\net40\SpecResults.Json.dll</HintPath>
+    <Reference Include="SpecResults.Json, Version=0.1.0.7, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SpecResults.Json.0.1.0.7\lib\net40\SpecResults.Json.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="SpecResults.WebApp">
       <HintPath>..\packages\SpecResults.WebApp.0.1.0.5\lib\net40\SpecResults.WebApp.dll</HintPath>
@@ -107,6 +109,7 @@
   <ItemGroup>
     <Compile Include="Common\FeatureContext.cs" />
     <Compile Include="Common\WebDriver.cs" />
+    <Compile Include="Extensions\IWebDriver.cs" />
     <Compile Include="Features\DefaultPageSteps.cs" />
     <Compile Include="PageModels\DefaultPage.cs" />
     <Compile Include="SpecFlowHooks\ScenarioBeforeAndAfter.cs" />
@@ -135,6 +138,12 @@
   <ItemGroup>
     <Content Include="App.config" />
     <Content Include="Papercut.ReadMe.txt" />
+    <Content Include="SpecResult\templates\step-details.tpl.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SpecResult\templates\styles.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="Features\Brushing.feature">
@@ -150,6 +159,9 @@
       <LastGenOutput>Login.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
+    <Content Include="SpecResult\templates\dashboard-text.md">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Spp.Bdd.Web\Spp.Bdd.Web.csproj">

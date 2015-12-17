@@ -1,12 +1,13 @@
 ﻿using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Remote;
 using System;
+using SpecResults;
 using TechTalk.SpecFlow;
 
 namespace Spp.Bdd.AccaptenceTests.Features
 {
     [Binding]
-    public class LoginSteps
+    public class LoginSteps : ReportingStepDefinitions
     {
         private string _websiteUrl;
         private readonly RemoteWebDriver _webDriver;

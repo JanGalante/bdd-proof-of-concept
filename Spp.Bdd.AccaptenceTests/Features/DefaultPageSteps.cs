@@ -12,7 +12,7 @@ using TechTalk.SpecFlow;
 namespace Spp.Bdd.AccaptenceTests.Features
 {
     [Binding]
-    public class DefaultPageSteps
+    public class DefaultPageSteps : ReportingStepDefinitions
     {
         private readonly DefaultPage _defaultPage;
 
