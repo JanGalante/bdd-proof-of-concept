@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using OpenQA.Selenium.Firefox;
+//using Papercut.Core.Configuration;
 using SpecResults;
 using SpecResults.Json;
 using SpecResults.WebApp;
@@ -25,7 +26,16 @@ namespace Spp.Bdd.AccaptenceTests.SpecFlowHooks
             //not really necessary since its a singelton
             var webDriver = WebDriver.Instance;
 
+            //Web report for acceptance tests
             SetupWebAppReporter();
+
+            //Stub smtp server with Papercut
+            //Processor .MessageReceived
+
+            //var settingPathTemplateProvider = new Papercut.Core.Configuration.; SettingPathTemplateProvider();
+            //var messagePathConfigurator = new MessagePathConfigurator();
+            //var MessageReceived = new Papercut.Core.Message.MessageWatcher(null, );
+
         }
 
         [AfterTestRun]

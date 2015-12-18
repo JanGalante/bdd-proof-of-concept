@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using Bogus;
+using NUnit.Framework;
 using SpecResults;
 using Spp.Bdd.AccaptenceTests.Common;
 using Spp.Bdd.AccaptenceTests.PageModels;
@@ -23,6 +24,19 @@ namespace AccaptenceTests.Features
         {
             //This step doesn't do anything, since the page url is already set
             //in the page model for Default page
+
+            //Using Bogus to create realistic fake data
+            //https://github.com/bchavez/Bogus
+            var fakeUser = new Faker<TestUser>("sv")
+                .RuleFor(u => u.FirstName, f => f.Name.FirstName())
+                .RuleFor(u => u.LastName, f => f.Name.LastName())
+                .RuleFor(u => u.Email, f => f.Internet.Email())
+                .RuleFor(u => u.Company, f => f.Company.CompanyName());
+
+            var user = fakeUser.Generate();
+
+            var lorem = new Bogus.DataSets.Lorem(locale: "sv");
+            var sentences = lorem.Sentences(5);
         }
         
         [When]
@@ -36,5 +50,13 @@ namespace AccaptenceTests.Features
         {
             Assert.AreEqual(_defaultPage.Header, header);
         }
+    }
+
+    public class TestUser
+    {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Email { get; set; }
+        public string Company { get; set; }
     }
 }
